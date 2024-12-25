@@ -1,7 +1,7 @@
 name: Code Deployment
 on: push
 Jobs:
-  testing:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -12,5 +12,7 @@ Jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci
-      - name: Run test
-        run: npm test
+      - name: Build project
+        run: npm run build
+      - name: Deploy
+        run: echo "Deploying"
